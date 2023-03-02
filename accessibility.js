@@ -24,6 +24,7 @@ function addAccessibilityAttrs($tag) {
 }
 
 // Read the HTML file and parse it using Cheerio
+// Change first argument to file path '../Golf-scorecard/index.html' -> './index.html'
 const html = fs.readFileSync('../Golf-scorecard/index.html', 'utf8');
 const $ = cheerio.load(html);
 
