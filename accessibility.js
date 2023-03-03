@@ -31,14 +31,14 @@ const $ = cheerio.load(html);
 // Array to store target tags missing accessibility attributes
 const missingAttrs = [];
 
-// This is not working --------------------------------------------
+// // This is not working --------------------------------------------
 // // Iterate over each line in the HTML file
 // $('body').contents().each((i, line) => {
 //   if (line.type === 'text') {
 //     return;
 //   }
 
-//   const $tag = $(el);
+//   const $tag = $(line);
 //   const tagName = $tag[0].name;
 
 //   // Skip if tag is not a target attribute
@@ -57,11 +57,11 @@ const missingAttrs = [];
 //   if (hasAccessibilityAttrs) {
 //     return;
 //   }
-// ----------------------------------------------------------------
+// // ----------------------------------------------------------------
 
   // Add tag to the missingAttrs array
-  missingAttrs.push($tag);
-});
+  // missingAttrs.push($tag);
+// });
 
 // Prompt the user to confirm change
 if (missingAttrs.length > 0) {
@@ -76,7 +76,7 @@ if (missingAttrs.length > 0) {
       // Add accessibility attributes to the missing tags
       missingAttrs.forEach($tag => addAccessibilityAttrs($tag));
       // Save the modified HTML file
-      fs.writeFileSync('path/to/new/html/file.html', $.html());
+      fs.writeFileSync('path/to/html.html', $.html());
       console.log(`Accessibility attributes added to ${missingAttrs.length} tags.`);
     } else {
       console.log('No changes were made.');
